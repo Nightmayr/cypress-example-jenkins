@@ -13,7 +13,12 @@ RUN chown -R jenkins:jenkins /e2e
 
 
 USER jenkins:jenkins
+
+RUN npm install
+# RUN cypress run
+
 # RUN jq ${APP_ALIAS} /e2e/cypress.env.json .APP_ALIAS
 # CMD [ "npm install" ]
 
-ENTRYPOINT [ "/bin/bash" ]
+ENTRYPOINT [ "cypress run" ]
+# ENTRYPOINT [ "/bin/bash" ]
