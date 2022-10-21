@@ -22,8 +22,12 @@ pipeline {
                 // branches: [[name: '*/main']],
                 // userRemoteConfigs: [[url: 'https://github.com/Nightmayr/cypress-example-jenkins.git']]]
                 // )
-                sh 'npm install'
-                sh 'cypress run'
+                sh 'echo $USER'
+                sh 'cat /etc/passwd'
+                // sh 'npm install'
+                sh 'cypress version'
+                sh 'cypress info'
+                sh '/usr/local/bin/cypress run'
                 // script {
                 //     docker.image('cypress/included:10.10.0').inside{
                 //         checkout([$class: 'GitSCM',
