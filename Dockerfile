@@ -23,5 +23,5 @@ RUN npm install
 # CMD [ "npm install" ]
 
 CMD [ "/usr/local/bin/cypress", "run" ]
-ENTRYPOINT [ "/usr/local/bin/cypress run" ]
+ENTRYPOINT [ "/usr/local/bin/cypress", "run" ]
 # ENTRYPOINT [ "/bin/bash" ]
