@@ -14,6 +14,8 @@ RUN chown -R jenkins:jenkins /e2e
 
 USER jenkins:jenkins
 
+ENV PATH "$PATH:/usr/local/bin:/usr/bin"
+
 RUN npm install
 # RUN cypress run
 
