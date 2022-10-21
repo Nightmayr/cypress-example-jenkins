@@ -22,6 +22,6 @@ RUN npm install
 # RUN jq ${APP_ALIAS} /e2e/cypress.env.json .APP_ALIAS
 # CMD [ "npm install" ]
 
-CMD [ "cypress", "run" ]
-ENTRYPOINT [ "cypress run" ]
+CMD [ "/usr/local/bin/cypress", "run" ]
+ENTRYPOINT [ "/usr/local/bin/cypress run" ]
 # ENTRYPOINT [ "/bin/bash" ]
