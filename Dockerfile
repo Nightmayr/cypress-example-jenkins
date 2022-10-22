@@ -30,4 +30,5 @@ RUN cat cypress.json | jq --arg APP_ALIAS $APP_ALIAS 'select (.APP_ALIAS == "f1"
 # CMD [ "/usr/local/bin/cypress", "run" ]
 # ENTRYPOINT [ "/usr/local/bin/cypress", "run" ]
 # ENTRYPOINT [ "cypress", "run" ]
-ENTRYPOINT [ "/bin/bash" ]
+# ENTRYPOINT [ "/bin/bash" ]
+ENTRYPOINT []
