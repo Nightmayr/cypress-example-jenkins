@@ -21,7 +21,7 @@ USER jenkins:jenkins
 ENV PATH="$PATH:/usr/local/bin:/usr/bin"
 
 RUN npm ci
-RUN cat cypress.json | jq --arg APP_ALIAS $APP_ALIAS 'select (.APP_ALIAS == "f1") .APP_ALIAS = $APP_ALIAS' | sponge cypress.json
+RUN cat cypress.env.json | jq --arg APP_ALIAS $APP_ALIAS 'select (.APP_ALIAS == "f1") .APP_ALIAS = $APP_ALIAS' | sponge cypress.json
 # RUN cypress run
 
 # RUN jq ${APP_ALIAS} /e2e/cypress.env.json .APP_ALIAS

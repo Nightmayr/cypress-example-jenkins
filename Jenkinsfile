@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    options {
+        ansiColor('xterm')
+    }
     stages {
         stage ('checkout') {
             steps {
@@ -23,6 +26,7 @@ pipeline {
                 // userRemoteConfigs: [[url: 'https://github.com/Nightmayr/cypress-example-jenkins.git']]]
                 // )
                 sh 'echo $USER'
+                sh 'echo $UID'
                 sh 'cat /etc/passwd'
                 // sh 'npm install'
                 sh 'cypress version'
