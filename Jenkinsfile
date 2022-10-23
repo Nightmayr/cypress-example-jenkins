@@ -47,8 +47,8 @@ pipeline {
                 // sh 'cypress version'
         }
         stage('manual docker build') {
-            dir('test-directory'){
-                steps {
+            steps {
+                dir('test-directory'){
                     checkout([$class: 'GitSCM',
                     branches: [[name: '*/manual-build']],
                     userRemoteConfigs: [[url: 'https://github.com/Nightmayr/cypress-example-jenkins.git']]]
