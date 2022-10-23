@@ -64,7 +64,9 @@ pipeline {
         }
         stage('manual docker build 2') {
             environment {
-                CYPRESS_VIDEO = false
+                CYPRESS_VIDEO = true
+                LIBVA_DRIVER_PATH = "/usr/lib/x86_64-linux-gnu/dri"
+                LIBVA_DRIVER_NAME = "iHD"
             }
             steps {
                 dir('test-directory-2'){
