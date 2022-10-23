@@ -28,7 +28,7 @@ pipeline {
             agent {
                 // dockerfile true
                 dockerfile {
-                    dir '$WORKSPACE/dockerfile-test'
+                    dir 'dockerfile-test'
                     reuseNode true
                 }
             }
