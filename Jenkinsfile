@@ -54,7 +54,7 @@ pipeline {
                 userRemoteConfigs: [[url: 'https://github.com/Nightmayr/cypress-example-jenkins.git']]]
                 )                
                 sh 'docker build . -t test/cypress'
-                sh 'docker run -u "$(id -u):$(ig -g)" test/cypress'
+                sh 'docker run -u "$(id -u):$(id -g)" test/cypress'
             }
         }
     }
