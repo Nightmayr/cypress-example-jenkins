@@ -14,8 +14,8 @@ pipeline {
             }
         }
         stage ('checkout dockerfile test') {
-            dir('dockerfile-test') {
-                steps {
+            steps {
+                dir('dockerfile-test') {
                     cleanWs()
                     checkout([$class: 'GitSCM',
                     branches: [[name: '*/main']],
