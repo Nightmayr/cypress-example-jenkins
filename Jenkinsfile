@@ -28,7 +28,7 @@ pipeline {
             agent {
                 // dockerfile true
                 dockerfile {
-                    dir '$WORKSPACE/dockerfile-test'
+                    dir '$WORKSPACE/../docker/dockerfile-test'
                 }
             }
             steps {
