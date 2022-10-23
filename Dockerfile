@@ -6,9 +6,7 @@ ENV APP_ALIAS='jenkins'
 RUN apt install -y jq moreutils
 
 RUN groupadd -g 974 jenkins
-RUN groupadd -g 975 docker
-RUN useradd jenkins -u 974 -g 974 --create-home --shell /bin/bash
-RUN useradd docker -u 975 -g 975 --create-home --shell /bin/bash
+RUN useradd jenkins -u 975 -g 974 --create-home --shell /bin/bash
 
 
 COPY . /e2e
