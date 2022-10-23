@@ -74,7 +74,7 @@ pipeline {
                     )
                     sh 'echo $WORKSPACE'
                     sh 'docker build . -t test/cypress'
-                    sh 'docker run -u "$(id -u):$(id -g)" -v $PWD:/e2e -w /e2e test/cypress'
+                    sh 'docker run -u "$(id -u):$(id -g)" -e CYPRESS_VIDEO=$CYPRESS_VIDEO -v $PWD:/e2e -w /e2e test/cypress'
                 }
             }
         }
