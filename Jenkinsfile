@@ -13,12 +13,23 @@ pipeline {
                 )
             }
         }
+        stage ('checkout dockerfile test') {
+            dir('dockerfile-test') {
+                steps {
+                    cleanWs()
+                    checkout([$class: 'GitSCM',
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[url: 'https://github.com/Nightmayr/cypress-example-jenkins.git']]]
+                    )
+                }
+            }
+        }
         stage('Dockerfile') {
             agent {
                 dockerfile true
-                // reuseNode true
-                // docker { image 'cypress/base:10.0.0' }
-                // docker { dockerfile true }
+                dockerfile {
+                    dir '$WORKSPACE/dockerfile-test'
+                }
             }
             steps {
                 // checkout([$class: 'GitSCM',
@@ -66,7 +77,7 @@ pipeline {
             environment {
                 CYPRESS_VIDEO = true
                 LIBVA_DRIVER_PATH = "/usr/lib/x86_64-linux-gnu/dri"
-                LIBVA_DRIVER_NAME = "iHD"
+                LIBVA_DRIVER_NAME = "i915"
             }
             steps {
                 dir('test-directory-2'){
