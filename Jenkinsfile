@@ -76,7 +76,7 @@ pipeline {
                     )
                     sh 'echo $WORKSPACE'
                     sh 'docker build . -t test/cypress'
-                    sh 'docker run -u "$(id -u):$(id -g)" -e CYPRESS_VIDEO=$CYPRESS_VIDEO -v $PWD:/e2e -w /e2e test/cypress'
+                    sh 'docker run -u "$(id -u):$(id -g)" -e CYPRESS_VIDEO=$CYPRESS_VIDEO -e LIBVA_DRIVER_PATH=$LIBVA_DRIVER_PATH -e LIBVA_DRIVER_NAME=$LIBVA_DRIVER_NAME -v $PWD:/e2e -w /e2e test/cypress'
                 }
             }
         }
