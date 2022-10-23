@@ -55,9 +55,26 @@ pipeline {
                     checkout([$class: 'GitSCM',
                     branches: [[name: '*/manual-build']],
                     userRemoteConfigs: [[url: 'https://github.com/Nightmayr/cypress-example-jenkins.git']]]
-                    )                
+                    )
+                    sh 'echo $WORKSPACE'
                     sh 'docker build . -t test/cypress'
                     sh 'docker run -u "$(id -u):$(id -g)" test/cypress'
+                }
+            }
+        }
+        stage('manual docker build 2') {
+            environment {
+                CYPRESS_VIDEO = false
+            }
+            steps {
+                dir('test-directory-2'){
+                    checkout([$class: 'GitSCM',
+                    branches: [[name: '*/manual-build']],
+                    userRemoteConfigs: [[url: 'https://github.com/Nightmayr/cypress-example-jenkins.git']]]
+                    )
+                    sh 'echo $WORKSPACE'
+                    sh 'docker build . -t test/cypress'
+                    sh 'docker run -u "$(id -u):$(id -g)" -v $PWD:/e2e -w /e2e test/cypress'
                 }
             }
         }
