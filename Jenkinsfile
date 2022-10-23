@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Dockerfile') {
             agent {
-                dockerfile true
+                // dockerfile true
                 dockerfile {
                     dir '$WORKSPACE/dockerfile-test'
                 }
