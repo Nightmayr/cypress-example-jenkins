@@ -27,11 +27,12 @@ pipeline {
                 // )
                 sh 'echo $USER'
                 sh 'echo $UID'
+                sh 'cat cypress.env.json'
                 sh 'cat /etc/passwd'
                 // sh 'npm install'
                 sh 'cypress version'
                 sh 'cypress info'
-                sh '/usr/local/bin/cypress run'
+                sh 'cypress run'
                 // script {
                 //     docker.image('cypress/included:10.10.0').inside{
                 //         checkout([$class: 'GitSCM',
